@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="POWERFLC_EXTENSION_INSTALLDIR">
+            <Component Id="cmpA0AB775E1128E888E1170893DCE7F9FD" Guid="{ED1043E4-8180-4F6F-84C1-D52BFD46FA98}">
+                <File Id="fil29F20A09290591BCDCED0B6C894897E5" KeyPath="yes" Source="$(var.PowerFLC.ExplorerExtension)\powerFLC.ExplorerExtension.vcet.config" />
+            </Component>
+            <Component Id="cmpDE6395B3E5F58FCE095CDFA492B4D5B1" Guid="{6AEDCF0D-4559-4B8D-A090-6EB0A8D5D8D1}">
+                <File Id="fil185097A89679A8D69AF152E74851657F" KeyPath="yes" Source="$(var.PowerFLC.ExplorerExtension)\powerFLC.ExplorerExtension.dll" />
+            </Component>
+            <Component Id="cmp9E75E5D0EB7683BA5CFADDC4C614D6E9" Guid="{DA978978-7E3C-4AE0-9BFF-DC8FEF3B75A7}">
+                <File Id="filABA0BFCD3F3BF3B10E79BC6FBA3D0738" KeyPath="yes" Source="$(var.PowerFLC.ExplorerExtension)\powerFLC.ExplorerExtension.dll.config" />
+            </Component>
+            <Component Id="cmpAF23A2A9D42301B8610169FF3039BC0C" Guid="{1B730F75-DFB3-409D-A3AB-BB7E4119CCFE}">
+                <File Id="fil4375AC4F949B4F570A74AE28B1F7F963" KeyPath="yes" Source="$(var.PowerFLC.ExplorerExtension)\AdskLicensingSDK_3.dll" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="HeatGenerated_PowerFLC.ExplorerExtension">
+            <ComponentRef Id="cmpA0AB775E1128E888E1170893DCE7F9FD" />
+            <ComponentRef Id="cmpDE6395B3E5F58FCE095CDFA492B4D5B1" />
+            <ComponentRef Id="cmp9E75E5D0EB7683BA5CFADDC4C614D6E9" />
+            <ComponentRef Id="cmpAF23A2A9D42301B8610169FF3039BC0C" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>
