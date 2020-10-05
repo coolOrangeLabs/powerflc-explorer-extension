@@ -30,10 +30,18 @@ namespace powerFLC.ExplorerExtension
 {
     public class CommandExtension : IExplorerExtension
     {
-        private const string JobType = "Sample.TransferItemBOMs";
-        private const string AttributeNs = "FLC.ITEM";
-        private const string AttributeName = "Urn";
+        private readonly string _jobType;
+        private readonly string _attributeNs;
+        private readonly string _attributeName;
+
         private Connection _connection;
+
+        public CommandExtension()
+        {
+            _jobType = GetValue("Item_JobType");
+            _attributeName = GetValue("Item_AttributeName");
+            _attributeNs = GetValue("Item_AttributeNamespace");
+        }
 
         #region IExtension Members
         public IEnumerable<CommandSite> CommandSites()
@@ -119,15 +127,15 @@ namespace powerFLC.ExplorerExtension
             if (selection.TypeId != SelectionTypeId.Item) return;
 
             var item = _connection.WebServiceManager.ItemService.GetLatestItemByItemNumber(selection.Label);
-            var entAttrs = _connection.WebServiceManager.PropertyService.GetEntityAttributes(item.MasterId, AttributeNs);
-            var entAttr = entAttrs?.SingleOrDefault(a => a.Attr.Equals(AttributeName));
+            var entAttrs = _connection.WebServiceManager.PropertyService.GetEntityAttributes(item.MasterId, _attributeNs);
+            var entAttr = entAttrs?.SingleOrDefault(a => a.Attr.Equals(_attributeName));
             if (entAttr == null)
             {
                 //TODO: connect to FLC and query item by number
                 return;
             }
 
-            var attribute = new EntAttrEx(entAttr, AttributeNs);
+            var attribute = new EntAttrEx(entAttr, _attributeNs);
             var urn = attribute.Val;
 
             if (string.IsNullOrEmpty(urn))
@@ -176,7 +184,7 @@ namespace powerFLC.ExplorerExtension
                         new JobParam { Name = "EntityId", Val = item.Id.ToString() }
                     };
 
-                    var job = _connection.WebServiceManager.JobService.AddJob(JobType,
+                    var job = _connection.WebServiceManager.JobService.AddJob(_jobType,
                         $"Transfers item {item.ItemNum} to Fusion Lifecycle", jobParams.ToArray(), 100);
 
                     if (job != null)
@@ -192,7 +200,7 @@ namespace powerFLC.ExplorerExtension
 
             if (successItems.Count > 0)
             {
-                MessageBox.Show($@"Job '{JobType}' successfully triggered for item{(successItems.Count > 1 ? "s": "")} {string.Join(", ", successItems)}!",
+                MessageBox.Show($@"Job '{_jobType}' successfully triggered for item{(successItems.Count > 1 ? "s": "")} {string.Join(", ", successItems)}!",
                     @"Add Job",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -200,7 +208,7 @@ namespace powerFLC.ExplorerExtension
 
             if (errorItems.Count > 0)
             {
-                MessageBox.Show($@"Error while triggering job '{JobType}' for item{(errorItems.Count > 1 ? "s" : "")} {string.Join(", ", errorItems)}!",
+                MessageBox.Show($@"Error while triggering job '{_jobType}' for item{(errorItems.Count > 1 ? "s" : "")} {string.Join(", ", errorItems)}!",
                     @"Add Job",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -221,7 +229,7 @@ namespace powerFLC.ExplorerExtension
         private EntAttr[] _attributes;
         private void Subscribe(IExplorerControl control)
         {
-            _attributes = _connection.WebServiceManager.PropertyService.FindEntityAttributes(AttributeNs, AttributeName);
+            _attributes = _connection.WebServiceManager.PropertyService.FindEntityAttributes(_attributeNs, _attributeName);
             if (_isSubscribed) return;
 
             if (control is ItemMasterControl visibleControl)
