@@ -10,7 +10,7 @@ pool:
 
 variables: 
   solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
+  buildPlatform: 'Vault2019'
   buildConfiguration: 'Release'
   buildMajor: '$(Major)'
   buildMinor: '$(Minor)'
