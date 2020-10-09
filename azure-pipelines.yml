@@ -2,49 +2,33 @@
 # Build and run tests for .NET Desktop or Windows classic desktop solutions.
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/vsts/pipelines/apps/windows/dot-net
- 
-name: $(BuildID)
- 
+
+name: $(increment)
+
 pool:
   vmImage: 'VS2017-Win2016'
- 
- 
-variables:   
+
+variables: 
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   buildMajor: '$(Major)'
   buildMinor: '$(Minor)'
   buildRevision: '$(Revision)'
- 
+  increment: $[counter(1,0)]
+
 steps:
-- task: Pester@8
-  inputs:
-    scriptFolder: '$(Build.SourcesDirectory)\Files.Tests' 
-    resultsFile: '$(Build.SourcesDirectory)\Test-Pester.XML'
-
-- task: PublishTestResults@2
-  condition: always()
-  inputs:
-    testResultsFormat: 'NUnit' # Options: JUnit, NUnit, VSTest, xUnit
-    testResultsFiles: '**/TEST-*.xml'
-
 - task: NuGetToolInstaller@0
- 
+
 - task: NuGetCommand@2
   inputs:
+    feedsToUse: 'select'
+    vstsFeed: 'AzureFeed_Projects'
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1  
+- task: VSBuild@1
   inputs:
-    solution: 'Files/VS_Sources/**/*.sln'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-    msbuildArgs: '/property:Major=$(buildMajor);Minor=$(buildMinor);Build=$(Build.BuildNumber);Revision=$(buildRevision);RunWixToolsOutofProc=true'
-    
-- task: VSBuild@1  
-  inputs:
-    solution: 'Installer/*.sln'
+    solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/property:Major=$(buildMajor);Minor=$(buildMinor);Build=$(Build.BuildNumber);Revision=$(buildRevision);RunWixToolsOutofProc=true'
@@ -60,5 +44,5 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'Setups'
