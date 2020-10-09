@@ -33,14 +33,14 @@ steps:
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/property:Major=$(buildMajor);Minor=$(buildMinor);Build=$(Build.BuildNumber);Revision=$(buildRevision);RunWixToolsOutofProc=true'
     
-- task: VSBuild@2
+- task: VSBuild@1
   inputs:
     solution: '$(solution)'
     platform: 'Vault2020'
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/property:Major=$(buildMajor);Minor=$(buildMinor);Build=$(Build.BuildNumber);Revision=$(buildRevision);RunWixToolsOutofProc=true' 
 
-- task: VSBuild@3
+- task: VSBuild@1
   inputs:
     solution: '$(solution)'
     platform: 'Vault2021'
