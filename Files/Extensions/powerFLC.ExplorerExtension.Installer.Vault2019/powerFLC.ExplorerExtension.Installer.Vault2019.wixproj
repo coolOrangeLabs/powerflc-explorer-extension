@@ -6,7 +6,7 @@
     <Minor>0</Minor>
     <Build>0</Build>
     <Revision>0</Revision>
-    <Name>powerFLC.ExplorerExtension.Installer.Vault2021</Name>
+    <Name>powerFLC.ExplorerExtension.Installer.Vault2019</Name>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
