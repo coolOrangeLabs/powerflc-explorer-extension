@@ -50,7 +50,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
-    contents: 'Installer\bin\**\en-us\*.msi' 
+    contents: 'Files\bin\**\en-us\*.msi' 
     targetFolder: '$(Build.ArtifactStagingDirectory)'
     cleanTargetFolder: true
     overWrite: true
