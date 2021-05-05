@@ -2,9 +2,9 @@
 
 [![Windows](https://img.shields.io/badge/Platform-Windows-lightgray.svg)](https://www.microsoft.com/en-us/windows/)
 [![PowerShell](https://img.shields.io/badge/PowerShell-5-blue.svg)](https://microsoft.com/PowerShell/)
-[![Vault](https://img.shields.io/badge/Autodesk%20Vault-2021-yellow.svg)](https://www.autodesk.com/products/vault/)
+[![Vault](https://img.shields.io/badge/Autodesk%20Vault-2022-yellow.svg)](https://www.autodesk.com/products/vault/)
 
-[![powerJobs](https://img.shields.io/badge/coolOrange%20powerFLC-21-orange.svg)](https://www.coolorange.com/en-eu/connect.html#fusionLifecycle)
+[![powerJobs](https://img.shields.io/badge/coolOrange%20powerPLM-22-orange.svg)](https://www.coolorange.com/products/powerplm/)
 
 ## Disclaimer
 
@@ -24,4 +24,4 @@ The usage of these samples is at your own risk. There is no free support related
 ## Author
 coolOrange s.r.l.
 
-![coolOrange](https://user-images.githubusercontent.com/36075173/46519882-4b518880-c87a-11e8-8dab-dffe826a9630.png)
+![coolOrange](https://i.ibb.co/NmnmjDT/Logo-CO-Full-colore-RGB-short-Payoff.png)
