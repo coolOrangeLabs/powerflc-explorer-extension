@@ -25,6 +25,9 @@ using DevExpress.XtraGrid.Views.Grid;
 #if Vault2021
 [assembly: Autodesk.Connectivity.Extensibility.Framework.ApiVersion("14.0")]
 #endif
+#if Vault2022
+[assembly: Autodesk.Connectivity.Extensibility.Framework.ApiVersion("15.0")]
+#endif
 
 namespace powerFLC.ExplorerExtension
 {
@@ -72,15 +75,43 @@ namespace powerFLC.ExplorerExtension
             itemSite.AddCommand(gotoItem);
             itemSite.AddCommand(queueItem);
 
-            var bomSite = new CommandSite("Menu.powerFLC.BOM.Context", "powerFLC.Item.Context")
+            var bomSite = new CommandSite("Menu.powerFLC.BOM.Context", "powerFLC.BOM.Context")
             {
                 Location = CommandSiteLocation.ItemBomToolbar,
                 DeployAsPulldownMenu = false
             };
             bomSite.AddCommand(queueItem);
 
+            var ecoSite = new CommandSite("Menu.powerFLC.ECO.Context", "powerFLC.ECO.Context")
+            {
+                Location = CommandSiteLocation.ChangeOrderContextMenu,
+                DeployAsPulldownMenu = false
+            };
+            ecoSite.AddCommand(gotoItem);
+            //ecoSite.AddCommand(queueItem);
+
+            var fileSite = new CommandSite("Menu.powerFLC.File.Context", "powerFLC.File.Context")
+            {
+                Location = CommandSiteLocation.FileContextMenu,
+                DeployAsPulldownMenu = false
+            };
+            //fileSite.AddCommand(gotoItem);
+            //fileSite.AddCommand(queueItem);
+
+            var folderSite = new CommandSite("Menu.powerFLC.Folder.Context", "powerFLC.Folder.Context")
+            {
+                Location = CommandSiteLocation.FolderContextMenu,
+                DeployAsPulldownMenu = false
+            };
+            //folderSite.AddCommand(gotoItem);
+            //folderSite.AddCommand(queueItem);
+
+
             sites.Add(itemSite);
             sites.Add(bomSite);
+            sites.Add(ecoSite);
+            sites.Add(fileSite);
+            sites.Add(folderSite);
 
             return sites;
         }
@@ -123,11 +154,38 @@ namespace powerFLC.ExplorerExtension
         #region Private Members
         private void GoToFlcItem(object s, CommandItemEventArgs e)
         {
+            long entityId = 0;
             var selection = e.Context.CurrentSelectionSet.First();
-            if (selection.TypeId != SelectionTypeId.Item) return;
 
-            var item = _connection.WebServiceManager.ItemService.GetLatestItemByItemNumber(selection.Label);
-            var entAttrs = _connection.WebServiceManager.PropertyService.GetEntityAttributes(item.MasterId, _attributeNs);
+            if (selection.TypeId == SelectionTypeId.Item)
+            {
+                var item = _connection.WebServiceManager.ItemService.GetLatestItemByItemNumber(selection.Label);
+                entityId = item.MasterId;
+            }
+            if (selection.TypeId == SelectionTypeId.File)
+            {
+                var file = _connection.WebServiceManager.DocumentService.GetLatestFileByMasterId(selection.Id);
+                entityId = file.MasterId;
+            }
+            if (selection.TypeId == SelectionTypeId.FileVersion)
+            {
+                var file = _connection.WebServiceManager.DocumentService.GetFileById(selection.Id);
+                entityId = file.MasterId;
+            }
+            if (selection.TypeId == SelectionTypeId.Folder)
+            {
+                var folder = _connection.WebServiceManager.DocumentService.GetFolderById(selection.Id);
+                entityId = folder.Id;
+            }
+            if (selection.TypeId == SelectionTypeId.ChangeOrder)
+            {
+                var changeOrder = _connection.WebServiceManager.ChangeOrderService.GetChangeOrderByNumber(selection.Label);
+                entityId = changeOrder.Id;
+            }
+
+            if (entityId == 0) return;
+
+            var entAttrs = _connection.WebServiceManager.PropertyService.GetEntityAttributes(entityId, _attributeNs);
             var entAttr = entAttrs?.SingleOrDefault(a => a.Attr.Equals(_attributeName));
             if (entAttr == null)
             {

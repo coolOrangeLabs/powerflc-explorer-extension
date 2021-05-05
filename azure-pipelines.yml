@@ -47,6 +47,13 @@ steps:
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/property:Major=$(buildMajor);Minor=$(buildMinor);Build=$(Build.BuildNumber);Revision=$(buildRevision);RunWixToolsOutofProc=true' 
 
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    platform: 'Vault2022'
+    configuration: '$(buildConfiguration)'
+    msbuildArgs: '/property:Major=$(buildMajor);Minor=$(buildMinor);Build=$(Build.BuildNumber);Revision=$(buildRevision);RunWixToolsOutofProc=true' 
+
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'

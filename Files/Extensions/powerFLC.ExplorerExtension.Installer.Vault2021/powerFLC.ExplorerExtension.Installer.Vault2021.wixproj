@@ -92,6 +92,6 @@
     <PreBuildEvent>cd  "$(ProjectDir)"
 
       ::  Heat for files
-      "%25WIX%25\bin\Heat.exe" dir ..\..\bin\$(PlatformName)\powerFLC.ExplorerExtension -cg HeatGenerated_PowerFLC.ExplorerExtension -dr POWERFLC_EXTENSION_INSTALLDIR -sreg -srd -var var.PowerFLC.ExplorerExtension -gg -sfrag -t Resources/Setup/Transform_HeatDir.xslt -out ./HeatGenerated/HeatGenerated_PowerFLC.ExplorerExtension.wxs</PreBuildEvent>
+      "%25WIX%25\bin\Heat.exe" dir ..\..\bin\$(PlatformName)\powerFLC.ExplorerExtension -cg HeatGenerated_PowerFLC.ExplorerExtension -dr POWERFLC_EXTENSION_INSTALLDIR -sreg -srd -var var.PowerFLC.ExplorerExtension -gg -sfrag -t ../Resources/Setup/Transform_HeatDir.xslt -out ./HeatGenerated/HeatGenerated_PowerFLC.ExplorerExtension.wxs</PreBuildEvent>
   </PropertyGroup>
 </Project>

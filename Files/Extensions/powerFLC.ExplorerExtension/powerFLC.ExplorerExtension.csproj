@@ -40,6 +40,24 @@
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Vault2022' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>C:\ProgramData\Autodesk\Vault 2022\Extensions\powerFLC.ExplorerExtension\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Vault2022</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Vault2022' ">
+    <OutputPath>..\..\bin\Vault2022\powerFLC.ExplorerExtension\</OutputPath>
+    <DefineConstants>TRACE;Vault2022</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Vault2021' ">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>C:\ProgramData\Autodesk\Vault 2021\Extensions\powerFLC.ExplorerExtension\</OutputPath>
@@ -130,12 +148,12 @@
       <HintPath>ReferenceAssemblies\$(Platform)\Connectivity.Services.Item.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Utils.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" Condition=" '$(Platform)'=='Vault2021' ">
+    <Reference Include="DevExpress.Utils.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" Condition=" '$(Platform)'=='Vault2021' Or '$(Platform)'=='Vault2022' ">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ReferenceAssemblies\$(Platform)\DevExpress.Utils.v19.1.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" Condition=" '$(Platform)'=='Vault2021' ">
+    <Reference Include="DevExpress.XtraGrid.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" Condition=" '$(Platform)'=='Vault2021' Or '$(Platform)'=='Vault2022' ">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ReferenceAssemblies\$(Platform)\DevExpress.XtraGrid.v19.1.dll</HintPath>
       <Private>False</Private>
@@ -188,6 +206,7 @@
     <None Include="powerFLC.ExplorerExtension.Vault2019.vcet.config" />
     <None Include="powerFLC.ExplorerExtension.Vault2020.vcet.config" />
     <None Include="powerFLC.ExplorerExtension.Vault2021.vcet.config" />
+    <None Include="powerFLC.ExplorerExtension.Vault2022.vcet.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

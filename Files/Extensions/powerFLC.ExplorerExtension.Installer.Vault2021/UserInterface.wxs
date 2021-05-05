@@ -4,13 +4,13 @@
 		<?include Includes\ProductVariables.wxi ?>
 	  <ComponentGroup Id="SETUP_UI" />
 		<WixVariable Id="WixUILicenseRtf"
-					 Value="Resources\Setup\EULA.rtf" />
+					 Value="..\Resources\Setup\EULA.rtf" />
 		<WixVariable Id="WixUIBannerBmp"
-					 Value="Resources\Setup\bg_banner.bmp" />
+					 Value="..\Resources\Setup\bg_banner.bmp" />
 		<WixVariable Id="WixUIDialogBmp"
-					 Value="Resources\Setup\bg_dialog.bmp" />
+					 Value="..\Resources\Setup\bg_dialog.bmp" />
 
-		<Icon Id="coolOrange.ico"
+		<Icon Id="coolorange.ico"
 			  SourceFile="$(var.IconName)" />
 
 		<UIRef Id="WixUI_ErrorProgressText" />
@@ -22,7 +22,7 @@
 					   Green="255"
 					   Blue="255"
 					   FaceName="Tahoma" />
-			<TextStyle Id="CoolOrange_Dialog_Title"
+			<TextStyle Id="Dialog_Title"
 					   Size="10"
 					   Red="92"
 					   Green="93"

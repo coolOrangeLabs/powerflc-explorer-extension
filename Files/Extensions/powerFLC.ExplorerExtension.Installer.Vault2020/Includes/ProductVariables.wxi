@@ -2,7 +2,7 @@
 <Include>
 	<?define UpgradeCode="f47b514a-35ec-486d-8989-3ffe081119fc"?>
 	<?define WikiLink="https://github.com/coolOrangeLabs/powerflc-explorer-extension/wiki"?>
-	<?define IconName="Resources\Setup\coolOrange.ico"?>
+	<?define IconName="..\Resources\Setup\coolorange.ico"?>
 	<?define PVersion="$(var.Major).$(var.Minor).$(var.Build).$(var.Revision)"?>
 	<?define PName="Vault Explorer Extension for coolOrange powerFLC"?>
 	<?define PShortVersion="$(var.Major).$(var.Minor)"?>

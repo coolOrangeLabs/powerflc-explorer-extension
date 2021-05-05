@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <?include Includes\ProductVariables.wxi ?>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="CommonAppDataFolder" Name="ProgramData">
+        <Directory Id='AutodeskFolder' Name='Autodesk'>
+          <Directory Id='VaultFolder' Name='$(var.VaultYear)'>
+            <Directory Id='ExtensionFolder' Name='Extensions'>
+              <Directory Id='POWERFLC_EXTENSION_INSTALLDIR' Name='powerFLC.ExplorerExtension'>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
+</Wix>
