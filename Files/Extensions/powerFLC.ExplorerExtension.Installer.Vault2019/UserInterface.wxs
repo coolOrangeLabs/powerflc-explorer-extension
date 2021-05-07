@@ -24,10 +24,10 @@
 					   FaceName="Tahoma" />
 			<TextStyle Id="Dialog_Title"
 					   Size="10"
-					   Red="92"
-					   Green="93"
-					   Blue="94"
-					   FaceName="Verdana" />
+					   Red="0"
+					   Green="0"
+					   Blue="0"
+					   FaceName="Tahoma" />
 		</UI>
 	</Fragment>
 </Wix>

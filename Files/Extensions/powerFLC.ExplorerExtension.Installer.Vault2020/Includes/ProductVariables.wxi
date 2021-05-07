@@ -4,20 +4,12 @@
 	<?define WikiLink="https://github.com/coolOrangeLabs/powerflc-explorer-extension/wiki"?>
 	<?define IconName="..\Resources\Setup\coolorange.ico"?>
 	<?define PVersion="$(var.Major).$(var.Minor).$(var.Build).$(var.Revision)"?>
-	<?define PName="Vault Explorer Extension for coolOrange powerFLC"?>
+	<?define PName="powerPLM Vault 2020 UI"?>
 	<?define PShortVersion="$(var.Major).$(var.Minor)"?>
   <?define CompanyDirectory="coolOrange"?>
 
   <?define VaultVersion=$(var.powerFLC.ExplorerExtension.Platform)?>
-  <?if $(var.powerFLC.ExplorerExtension.Platform) = "Vault2019" ?>
-    <?define VaultYear="Vault 2019"?>
-  <?endif ?>
-  <?if $(var.powerFLC.ExplorerExtension.Platform) = "Vault2020" ?>
-    <?define VaultYear="Vault 2020"?>
-  <?endif ?>
-  <?if $(var.powerFLC.ExplorerExtension.Platform) = "Vault2021" ?>
-    <?define VaultYear="Vault 2021"?>
-  <?endif ?>
+  <?define VaultYear="Vault 2020"?>
 
   <?if $(var.Platform) = x64 ?>
     <?define Win64 = "yes" ?>

@@ -7,6 +7,8 @@
 	<?define PName="powerPLM Vault 2022 UI"?>
 	<?define PShortVersion="$(var.Major).$(var.Minor)"?>
   <?define CompanyDirectory="coolOrange"?>
+
+  <?define VaultVersion=$(var.powerFLC.ExplorerExtension.Platform)?>
   <?define VaultYear="Vault 2022"?>
 
   <?if $(var.Platform) = x64 ?>
