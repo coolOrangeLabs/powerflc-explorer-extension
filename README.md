@@ -14,9 +14,9 @@ THE USAGE OF THIS SAMPLE IS AT YOUR OWN RISK AND **THERE IS NO SUPPORT** RELATED
 
 ## Description
 
-Vault Explorer Extension for powerFLC workflows
+Vault Explorer Extension for powerPLM workflows
 
-This repository contains a Vault Explorer Extension for Autodesk Vault that allows users to navigate to Fusion Lifecycle items create by the powerFLC workflows. It also allows to submit jobs.
+This repository contains a Vault Explorer Extension for Autodesk Vault that allows users to navigate to Fusion 360 Manage items created by powerPLM (a.k.a. powerFLC) workflows. It also allows to submit jobs.
 
 ## At your own risk
 The usage of these samples is at your own risk. There is no free support related to the samples. However, if you have questions to powerJobs, then visit http://www.coolorange.com/wiki or start a conversation in our support forum at http://support.coolorange.com/support/discussions

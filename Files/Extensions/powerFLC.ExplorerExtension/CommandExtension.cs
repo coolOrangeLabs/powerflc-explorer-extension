@@ -51,7 +51,7 @@ namespace powerFLC.ExplorerExtension
         {
             var sites = new List<CommandSite>();
 
-            var gotoItem = new CommandItem("Command.powerFLC.GoToFlcItem", "Go To Fusion Lifecycle Item...")
+            var gotoItem = new CommandItem("Command.powerFLC.GoToFlcItem", "Go To Fusion 360 Manage Item...")
             {
                 NavigationTypes = new SelectionTypeId[] { },
                 MultiSelectEnabled = false,
@@ -59,7 +59,7 @@ namespace powerFLC.ExplorerExtension
             };
             gotoItem.Execute += GoToFlcItem;
 
-            var queueItem = new CommandItem("Command.powerFLC.QueueItemJob", "Publish Fusion Lifecycle Item")
+            var queueItem = new CommandItem("Command.powerFLC.QueueItemJob", "Publish Fusion 360 Manage Item")
             {
                 NavigationTypes = new SelectionTypeId[] { },
                 MultiSelectEnabled = true,
