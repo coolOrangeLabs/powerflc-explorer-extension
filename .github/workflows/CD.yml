@@ -19,7 +19,14 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: windows-latest
-
+    
+    env:
+      Solution_Name: Files\Extensions\powerFLC.ExplorerExtension.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      #Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      #Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+      #Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+      Configuration: Release
+      
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
