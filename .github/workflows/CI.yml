@@ -64,5 +64,5 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            *.msi
+            Files\Extensions\bin\Release\en-us\*.msi
           
