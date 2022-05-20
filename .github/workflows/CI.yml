@@ -69,16 +69,16 @@ jobs:
           prerelease: true
           title: "Development Build"
           
-      - name: Split Action
+      - name: Split-by Action
         id: split
         # You may pin to the exact commit or the version.
-        # uses: JungWinter/split@397a50dadb89335ec4ef406c53105c3c4d407c63
-        uses: JungWinter/split@v2.0.0
+        # uses: rishabhgupta/split-by@v1
+        uses: rishabhgupta/split-by@v1
         with:
           # String to split
-          msg: ${{ steps.create_release.outputs.upload_url }}
+          string: ${{ steps.create_release.outputs.upload_url }}
           # The delimiter to split the string
-          separator: '/'
+          split-by: '/'
       
       # Upload release asset:
       - name: Upload Multiple Assets to a Release
