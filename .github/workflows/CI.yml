@@ -38,21 +38,21 @@ jobs:
           msbuild-architecture: x64
       
       - name: Build the Vault 2022 solution
-        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:Platform=Vault2022 
+        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:Platform=Vault2022 /p:RunWixToolsOutofProc=true
         
       - name: Build the Vault 2021 solution
-        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:Platform=Vault2021 
+        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:Platform=Vault2021 /p:RunWixToolsOutofProc=true
       
       - name: Build the Vault 2020 solution
-        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:Platform=Vault2020
+        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:Platform=Vault2020 /p:RunWixToolsOutofProc=true
       
       - name: Build the Vault 2019 solution
-        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:Platform=Vault2019
+        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:Platform=Vault2019 /p:RunWixToolsOutofProc=true
         
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.0.0
         with:
           name: MSIX Package
-          path: Files\Extensions\bin\**\en-us\
+          path: Files\Extensions\bin\**\*.msi
           
