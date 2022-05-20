@@ -1,0 +1,72 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CD
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+    tags:
+      - '*'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      
+      - name: setup-msbuild
+        uses: microsoft/setup-msbuild@v1.1
+        with:
+          msbuild-architecture: x64
+      
+      - name: Build the Vault 2022 solution
+        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2022 /p:RunWixToolsOutofProc=true
+        
+      - name: Build the Vault 2021 solution
+        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2021 /p:RunWixToolsOutofProc=true
+      
+      - name: Build the Vault 2020 solution
+        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2020 /p:RunWixToolsOutofProc=true
+      
+      - name: Build the Vault 2019 solution
+        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2019 /p:RunWixToolsOutofProc=true
+      
+      # Create the release:  https://github.com/actions/create-release
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref}}
+          release_name: v${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: true
+          prerelease: false
+
+      # Upload release asset:   https://github.com/actions/upload-release-asset
+      - name: Update release asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}  # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: Files\Extensions\bin\**\*.msi
+          
+          
+          
