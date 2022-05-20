@@ -76,11 +76,14 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: dwenegar/upload-release-assets@5bc3024cf83521df8ebfadf00ad0c4614fd59148
         uses: dwenegar/upload-release-assets@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           # The id of the release to upload the assets to
           release_id: ${{ steps.create_release.outputs.id }}
           # The path to the assets you want to upload
-          assets_path: Files\Extensions\bin\**\*.msi
+          assets_path: Files\Extensions\bin\Release\en-us
           
+      
           
           
