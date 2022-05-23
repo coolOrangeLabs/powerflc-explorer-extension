@@ -26,6 +26,10 @@ jobs:
       #Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
       #Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
       Configuration: Release
+      Major: 1
+      Minor: 0
+      Build: "${{ github.run_number }}"
+      Revision: 0
       
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -38,39 +42,41 @@ jobs:
           msbuild-architecture: x64
       
       - name: Build the Vault 2022 solution
-        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2022 /p:RunWixToolsOutofProc=true
+        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2022 /p:Major=$env:Major /p:Minor=$env:Minor /p:Build=$env:Build /p:Revision=$env:Revision /p:RunWixToolsOutofProc=true
         
       - name: Build the Vault 2021 solution
-        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2021 /p:RunWixToolsOutofProc=true
+        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2021 /p:Major=$env:Major /p:Minor=$env:Minor /p:Build=$env:Build /p:Revision=$env:Revision /p:RunWixToolsOutofProc=true
       
       - name: Build the Vault 2020 solution
-        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2020 /p:RunWixToolsOutofProc=true
+        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2020 /p:Major=$env:Major /p:Minor=$env:Minor /p:Build=$env:Build /p:Revision=$env:Revision /p:RunWixToolsOutofProc=true
       
       - name: Build the Vault 2019 solution
-        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2019 /p:RunWixToolsOutofProc=true
+        run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2019 /p:Major=$env:Major /p:Minor=$env:Minor /p:Build=$env:Build /p:Revision=$env:Revision /p:RunWixToolsOutofProc=true
       
       - name: Upload a Build Artifact
         id: upload-build-artifacts
         uses: actions/upload-artifact@v3.0.0
         with:
+          name: Msi package
           path: Files\Extensions\bin\**\*.msi
       
-      # Create the release:  https://github.com/actions/create-release
-      - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      - name: Tagged Release
+        id: taggged_release
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          tag_name: ${{ github.ref}}
-          release_name: v${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: true
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-
+      
+      - name: Split-by Action
+        id: split
+        # You may pin to the exact commit or the version.
+        # uses: rishabhgupta/split-by@v1
+        uses: rishabhgupta/split-by@v1
+        with:
+          # String to split
+          string: ${{ steps.taggged_release.outputs.upload_url }}
+          # The delimiter to split the string
+          split-by: '/'
       # Upload release asset:
       - name: Upload Multiple Assets to a Release
         # You may pin to the exact commit or the version.
@@ -80,9 +86,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           # The id of the release to upload the assets to
-          release_id: ${{ steps.create_release.outputs.id }}
+          release_id: ${{ ${{ steps.split.outputs._7 }} }}
           # The path to the assets you want to upload
-          assets_path: Files\Extensions\bin\Release\en-us
+          assets_path: Files\Extensions\bin\Release\en-us\*.msi
           
       
           
