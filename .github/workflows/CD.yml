@@ -86,7 +86,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           # The id of the release to upload the assets to
-          release_id: ${{ ${{ steps.split.outputs._7 }} }}
+          release_id: ${{ steps.split.outputs._7 }}
           # The path to the assets you want to upload
           assets_path: Files\Extensions\bin\Release\en-us\*.msi
           
