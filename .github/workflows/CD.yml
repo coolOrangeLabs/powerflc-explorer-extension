@@ -6,7 +6,7 @@ name: CD
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [ wgyalpo-patch-2 ]
     tags:
       - '*'
 
@@ -52,13 +52,6 @@ jobs:
       
       - name: Build the Vault 2019 solution
         run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2019 /p:Major=$env:Major /p:Minor=$env:Minor /p:Build=$env:Build /p:Revision=$env:Revision /p:RunWixToolsOutofProc=true
-      
-      - name: Upload a Build Artifact
-        id: upload-build-artifacts
-        uses: actions/upload-artifact@v3.0.0
-        with:
-          name: Msi package
-          path: Files\Extensions\bin\**\*.msi
       
       - name: Tagged Release
         id: taggged_release
