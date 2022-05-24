@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+	<?define UpgradeCode="f47b514a-35ec-486d-8989-3ffe081119fc"?>
+	<?define WikiLink="https://github.com/coolOrangeLabs/powerflc-explorer-extension/wiki"?>
+	<?define IconName="..\Resources\Setup\coolorange.ico"?>
+	<?define PVersion="$(var.Major).$(var.Minor).$(var.Build).$(var.Revision)"?>
+	<?define PName="powerPLM Vault 2023 UI"?>
+	<?define PShortVersion="$(var.Major).$(var.Minor)"?>
+  <?define CompanyDirectory="coolOrange"?>
+
+  <?define VaultVersion=$(var.powerFLC.ExplorerExtension.Platform)?>
+  <?define VaultYear="Vault 2023"?>
+
+  <?if $(var.Platform) = x64 ?>
+    <?define Win64 = "yes" ?>
+    <?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
+  <?else ?>
+    <?define Win64 = "no" ?>
+    <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+  <?endif ?>
+
+</Include>

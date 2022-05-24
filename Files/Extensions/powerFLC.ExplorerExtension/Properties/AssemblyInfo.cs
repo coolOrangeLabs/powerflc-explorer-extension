@@ -31,6 +31,6 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: AssemblyDescription("Vault Explorer Extension for coolOrange powerFLC")]
+[assembly: AssemblyDescription("Vault Explorer Extension for coolOrange powerPLM")]
 [assembly: AssemblyCompany("coolOrange s.r.l.")]
 [assembly: AssemblyProduct("powerFLC")]

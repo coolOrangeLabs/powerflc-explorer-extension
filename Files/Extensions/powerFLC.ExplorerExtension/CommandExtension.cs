@@ -28,6 +28,9 @@ using DevExpress.XtraGrid.Views.Grid;
 #if Vault2022
 [assembly: Autodesk.Connectivity.Extensibility.Framework.ApiVersion("15.0")]
 #endif
+#if Vault2023
+[assembly: Autodesk.Connectivity.Extensibility.Framework.ApiVersion("16.0")]
+#endif
 
 namespace powerFLC.ExplorerExtension
 {
@@ -130,6 +133,8 @@ namespace powerFLC.ExplorerExtension
 
         public void OnLogOff(IApplication application)
         {
+            _connection = null;
+            application.CommandEnd -= Application_CommandEnd;
         }
 
         public void OnShutdown(IApplication application)
@@ -287,6 +292,9 @@ namespace powerFLC.ExplorerExtension
         private EntAttr[] _attributes;
         private void Subscribe(IExplorerControl control)
         {
+            if (_connection == null || _connection.WebServiceManager == null)
+                return;
+
             _attributes = _connection.WebServiceManager.PropertyService.FindEntityAttributes(_attributeNs, _attributeName);
             if (_isSubscribed) return;
 
