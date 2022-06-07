@@ -66,6 +66,7 @@ jobs:
         id: taggged_release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
+          automatic_release_tag: ${{ github.event.inputs.tags }}
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
       
