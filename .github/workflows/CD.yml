@@ -11,6 +11,10 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      tags:
+        required: true
+        description: 'Release tags' 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -52,6 +56,16 @@ jobs:
       - name: Build the Vault 2019 solution
         run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=Vault2019 /p:Major=$env:Major /p:Minor=$env:Minor /p:Build=$env:Build /p:Revision=$env:Revision /p:RunWixToolsOutofProc=true
       
+      - name: Create tag
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/${{ github.event.inputs.tags }}',
+              sha: context.sha
+            })
       - name: Tagged Release
         id: taggged_release
         uses: "marvinpinto/action-automatic-releases@latest"
