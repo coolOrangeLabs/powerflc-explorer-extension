@@ -31,6 +31,9 @@ using DevExpress.XtraGrid.Views.Grid;
 #if Vault2023
 [assembly: Autodesk.Connectivity.Extensibility.Framework.ApiVersion("16.0")]
 #endif
+#if Vault2024
+[assembly: Autodesk.Connectivity.Extensibility.Framework.ApiVersion("17.0")]
+#endif
 
 namespace powerFLC.ExplorerExtension
 {
@@ -75,22 +78,22 @@ namespace powerFLC.ExplorerExtension
                 Location = CommandSiteLocation.ItemContextMenu,
                 DeployAsPulldownMenu = false
             };
-            itemSite.AddCommand(gotoItem);
-            itemSite.AddCommand(queueItem);
+            //itemSite.AddCommand(gotoItem);
+            //itemSite.AddCommand(queueItem);
 
             var bomSite = new CommandSite("Menu.powerFLC.BOM.Context", "powerFLC.BOM.Context")
             {
                 Location = CommandSiteLocation.ItemBomToolbar,
                 DeployAsPulldownMenu = false
             };
-            bomSite.AddCommand(queueItem);
+            //bomSite.AddCommand(queueItem);
 
             var ecoSite = new CommandSite("Menu.powerFLC.ECO.Context", "powerFLC.ECO.Context")
             {
                 Location = CommandSiteLocation.ChangeOrderContextMenu,
                 DeployAsPulldownMenu = false
             };
-            ecoSite.AddCommand(gotoItem);
+            //ecoSite.AddCommand(gotoItem);
             //ecoSite.AddCommand(queueItem);
 
             var fileSite = new CommandSite("Menu.powerFLC.File.Context", "powerFLC.File.Context")
@@ -322,15 +325,21 @@ namespace powerFLC.ExplorerExtension
             if (itemRevisionExplorerObject == null)
                 return;
 
-            if (e.Column.FieldName == "File!VaultStatus")
+            if (e.Column.FieldName == "EntityIcon") //if (e.Column.FieldName == "File!VaultStatus")
             {
-                e.DefaultDraw();
+                e.Handled = true;
 
                 var attributes = _attributes?.Where(a => a.EntityId == itemRevisionExplorerObject.ItemRevision.MasterId);
                 if (attributes != null && attributes.Any())
                 {
-                    e.Graphics.DrawIcon(new Icon(Properties.Resources.favicon_fusion, new Size(16, 16)), e.Bounds.Location.X + e.Bounds.Width - 16, e.Bounds.Location.Y);
+                    var size = 16;
+                    var icon = new Icon(Properties.Resources.favicon_fusion, new Size(size, size));
+                    e.Graphics.DrawIcon(icon, e.Bounds.Location.X + (e.Bounds.Width - size) / 2, e.Bounds.Location.Y + (e.Bounds.Height - size) / 2);
                     //e.Cache.DrawIcon(new Icon(Properties.Resources.favicon_fusion, new Size(16, 16)), e.Bounds.Location.X + e.Bounds.Width - 16, e.Bounds.Location.Y);
+                }
+                else
+                {
+                    //e.DefaultDraw();
                 }
             }
         }

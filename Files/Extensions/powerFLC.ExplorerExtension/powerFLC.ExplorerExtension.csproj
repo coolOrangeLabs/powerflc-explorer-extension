@@ -2,7 +2,7 @@
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">Vault2023</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">Vault2024</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}</ProjectGuid>
@@ -39,6 +39,24 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Vault2024' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>C:\ProgramData\Autodesk\Vault 2024\Extensions\powerFLC.ExplorerExtension\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Vault2024</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Vault2024' ">
+    <OutputPath>..\..\bin\Vault2024\powerFLC.ExplorerExtension\</OutputPath>
+    <DefineConstants>TRACE;Vault2024</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Vault2023' ">
     <DebugSymbols>true</DebugSymbols>
@@ -186,12 +204,12 @@
       <HintPath>ReferenceAssemblies\$(Platform)\Connectivity.Services.Item.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Utils.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" Condition=" '$(Platform)'=='Vault2023' ">
+    <Reference Include="DevExpress.Utils.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" Condition=" '$(Platform)'=='Vault2023' Or '$(Platform)'=='Vault2024' ">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ReferenceAssemblies\$(Platform)\DevExpress.Utils.v21.1.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" Condition=" '$(Platform)'=='Vault2023' ">
+    <Reference Include="DevExpress.XtraGrid.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" Condition=" '$(Platform)'=='Vault2023' Or '$(Platform)'=='Vault2024' ">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ReferenceAssemblies\$(Platform)\DevExpress.XtraGrid.v21.1.dll</HintPath>
       <Private>False</Private>
@@ -256,6 +274,7 @@
     <None Include="powerFLC.ExplorerExtension.Vault2021.vcet.config" />
     <None Include="powerFLC.ExplorerExtension.Vault2022.vcet.config" />
     <None Include="powerFLC.ExplorerExtension.Vault2023.vcet.config" />
+    <None Include="powerFLC.ExplorerExtension.Vault2024.vcet.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -284,7 +303,6 @@
   <ItemGroup>
     <None Include="Resources\powerFLC_64.ico" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if $(PlatformName) == Vault2019 (

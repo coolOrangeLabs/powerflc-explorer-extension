@@ -15,6 +15,8 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "powerFLC.ExplorerExtension.
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "powerFLC.ExplorerExtension.Installer.Vault2023", "powerFLC.ExplorerExtension.Installer.Vault2023\powerFLC.ExplorerExtension.Installer.Vault2023.wixproj", "{C5FD1ECE-335F-4759-84C7-90C7055C32D8}"
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "powerFLC.ExplorerExtension.Installer.Vault2024", "powerFLC.ExplorerExtension.Installer.Vault2024\powerFLC.ExplorerExtension.Installer.Vault2024.wixproj", "{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Vault2019 = Debug|Vault2019
@@ -22,12 +24,14 @@ Global
 		Debug|Vault2021 = Debug|Vault2021
 		Debug|Vault2022 = Debug|Vault2022
 		Debug|Vault2023 = Debug|Vault2023
+		Debug|Vault2024 = Debug|Vault2024
 		Debug|x64 = Debug|x64
 		Release|Vault2019 = Release|Vault2019
 		Release|Vault2020 = Release|Vault2020
 		Release|Vault2021 = Release|Vault2021
 		Release|Vault2022 = Release|Vault2022
 		Release|Vault2023 = Release|Vault2023
+		Release|Vault2024 = Release|Vault2024
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
@@ -41,6 +45,8 @@ Global
 		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Debug|Vault2022.Build.0 = Debug|Vault2022
 		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Debug|Vault2023.ActiveCfg = Debug|Vault2023
 		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Debug|Vault2023.Build.0 = Debug|Vault2023
+		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Debug|Vault2024.ActiveCfg = Debug|Vault2024
+		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Debug|Vault2024.Build.0 = Debug|Vault2024
 		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Debug|x64.ActiveCfg = Debug|Vault2021
 		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Release|Vault2019.ActiveCfg = Release|Vault2019
 		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Release|Vault2019.Build.0 = Release|Vault2019
@@ -52,6 +58,8 @@ Global
 		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Release|Vault2022.Build.0 = Release|Vault2022
 		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Release|Vault2023.ActiveCfg = Release|Vault2023
 		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Release|Vault2023.Build.0 = Release|Vault2023
+		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Release|Vault2024.ActiveCfg = Release|Vault2024
+		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Release|Vault2024.Build.0 = Release|Vault2024
 		{9F1A34EA-95C2-4474-8DB7-9D22F82A132D}.Release|x64.ActiveCfg = Release|Vault2021
 		{403EF423-FE42-4984-9944-648BE41DE914}.Debug|Vault2019.ActiveCfg = Debug|x64
 		{403EF423-FE42-4984-9944-648BE41DE914}.Debug|Vault2020.ActiveCfg = Debug|x64
@@ -59,6 +67,7 @@ Global
 		{403EF423-FE42-4984-9944-648BE41DE914}.Debug|Vault2021.Build.0 = Debug|x64
 		{403EF423-FE42-4984-9944-648BE41DE914}.Debug|Vault2022.ActiveCfg = Debug|x64
 		{403EF423-FE42-4984-9944-648BE41DE914}.Debug|Vault2023.ActiveCfg = Debug|x64
+		{403EF423-FE42-4984-9944-648BE41DE914}.Debug|Vault2024.ActiveCfg = Debug|x64
 		{403EF423-FE42-4984-9944-648BE41DE914}.Debug|x64.ActiveCfg = Debug|x64
 		{403EF423-FE42-4984-9944-648BE41DE914}.Debug|x64.Build.0 = Debug|x64
 		{403EF423-FE42-4984-9944-648BE41DE914}.Release|Vault2019.ActiveCfg = Release|x64
@@ -67,6 +76,7 @@ Global
 		{403EF423-FE42-4984-9944-648BE41DE914}.Release|Vault2021.Build.0 = Release|x64
 		{403EF423-FE42-4984-9944-648BE41DE914}.Release|Vault2022.ActiveCfg = Release|x64
 		{403EF423-FE42-4984-9944-648BE41DE914}.Release|Vault2023.ActiveCfg = Release|x64
+		{403EF423-FE42-4984-9944-648BE41DE914}.Release|Vault2024.ActiveCfg = Release|x64
 		{403EF423-FE42-4984-9944-648BE41DE914}.Release|x64.ActiveCfg = Release|x64
 		{403EF423-FE42-4984-9944-648BE41DE914}.Release|x64.Build.0 = Release|x64
 		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Debug|Vault2019.ActiveCfg = Debug|x64
@@ -75,6 +85,7 @@ Global
 		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Debug|Vault2021.ActiveCfg = Debug|x64
 		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Debug|Vault2022.ActiveCfg = Debug|x64
 		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Debug|Vault2023.ActiveCfg = Debug|x64
+		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Debug|Vault2024.ActiveCfg = Debug|x64
 		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Debug|x64.ActiveCfg = Debug|x64
 		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Debug|x64.Build.0 = Debug|x64
 		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Release|Vault2019.ActiveCfg = Release|x64
@@ -83,6 +94,7 @@ Global
 		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Release|Vault2021.ActiveCfg = Release|x64
 		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Release|Vault2022.ActiveCfg = Release|x64
 		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Release|Vault2023.ActiveCfg = Release|x64
+		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Release|Vault2024.ActiveCfg = Release|x64
 		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Release|x64.ActiveCfg = Release|x64
 		{07D62AAF-8584-4496-9E14-CF4C4C390D4F}.Release|x64.Build.0 = Release|x64
 		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Debug|Vault2019.ActiveCfg = Debug|x64
@@ -91,6 +103,7 @@ Global
 		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Debug|Vault2021.ActiveCfg = Debug|x64
 		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Debug|Vault2022.ActiveCfg = Debug|x64
 		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Debug|Vault2023.ActiveCfg = Debug|x64
+		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Debug|Vault2024.ActiveCfg = Debug|x64
 		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Debug|x64.ActiveCfg = Debug|x64
 		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Debug|x64.Build.0 = Debug|x64
 		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Release|Vault2019.ActiveCfg = Release|x64
@@ -99,6 +112,7 @@ Global
 		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Release|Vault2021.ActiveCfg = Release|x64
 		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Release|Vault2022.ActiveCfg = Release|x64
 		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Release|Vault2023.ActiveCfg = Release|x64
+		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Release|Vault2024.ActiveCfg = Release|x64
 		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Release|x64.ActiveCfg = Release|x64
 		{51972F95-CFD4-46E5-B456-DE6BDC8654DE}.Release|x64.Build.0 = Release|x64
 		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Debug|Vault2019.ActiveCfg = Debug|x64
@@ -107,6 +121,7 @@ Global
 		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Debug|Vault2022.ActiveCfg = Debug|x64
 		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Debug|Vault2022.Build.0 = Debug|x64
 		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Debug|Vault2023.ActiveCfg = Debug|x64
+		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Debug|Vault2024.ActiveCfg = Debug|x64
 		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Debug|x64.ActiveCfg = Debug|x64
 		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Debug|x64.Build.0 = Debug|x64
 		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Release|Vault2019.ActiveCfg = Release|x64
@@ -115,6 +130,7 @@ Global
 		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Release|Vault2022.ActiveCfg = Release|x64
 		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Release|Vault2022.Build.0 = Release|x64
 		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Release|Vault2023.ActiveCfg = Release|x64
+		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Release|Vault2024.ActiveCfg = Release|x64
 		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Release|x64.ActiveCfg = Release|x64
 		{441AA8A3-781A-4A2F-98CC-418D16BFAFA5}.Release|x64.Build.0 = Release|x64
 		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Debug|Vault2019.ActiveCfg = Debug|x64
@@ -123,6 +139,8 @@ Global
 		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Debug|Vault2022.ActiveCfg = Debug|x64
 		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Debug|Vault2023.ActiveCfg = Debug|x64
 		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Debug|Vault2023.Build.0 = Debug|x64
+		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Debug|Vault2024.ActiveCfg = Debug|x64
+		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Debug|Vault2024.Build.0 = Debug|x64
 		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Debug|x64.ActiveCfg = Debug|x64
 		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Debug|x64.Build.0 = Debug|x64
 		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Release|Vault2019.ActiveCfg = Release|x64
@@ -131,8 +149,38 @@ Global
 		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Release|Vault2022.ActiveCfg = Release|x64
 		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Release|Vault2023.ActiveCfg = Release|x64
 		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Release|Vault2023.Build.0 = Release|x64
+		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Release|Vault2024.ActiveCfg = Release|x64
+		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Release|Vault2024.Build.0 = Release|x64
 		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Release|x64.ActiveCfg = Release|x64
 		{C5FD1ECE-335F-4759-84C7-90C7055C32D8}.Release|x64.Build.0 = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|Vault2019.ActiveCfg = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|Vault2019.Build.0 = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|Vault2020.ActiveCfg = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|Vault2020.Build.0 = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|Vault2021.ActiveCfg = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|Vault2021.Build.0 = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|Vault2022.ActiveCfg = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|Vault2022.Build.0 = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|Vault2023.ActiveCfg = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|Vault2023.Build.0 = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|Vault2024.ActiveCfg = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|Vault2024.Build.0 = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|x64.ActiveCfg = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Debug|x64.Build.0 = Debug|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|Vault2019.ActiveCfg = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|Vault2019.Build.0 = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|Vault2020.ActiveCfg = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|Vault2020.Build.0 = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|Vault2021.ActiveCfg = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|Vault2021.Build.0 = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|Vault2022.ActiveCfg = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|Vault2022.Build.0 = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|Vault2023.ActiveCfg = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|Vault2023.Build.0 = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|Vault2024.ActiveCfg = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|Vault2024.Build.0 = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|x64.ActiveCfg = Release|x64
+		{0B7C5F66-5123-43F7-9609-C6842D1F1EF4}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
